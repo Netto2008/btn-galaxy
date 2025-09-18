@@ -5,7 +5,7 @@ export default function BuracoNegro() {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.titulo}>Buraco Negro</Text>
-			<Image source={require('../assets/buraconegro.png')} style={styles.imagem} />
+			{ <Image source={require("../assets/buraconegro.webp")} style={styles.imagem} /> }
 			<Text style={styles.texto}>
 				Buracos negros são regiões do espaço-tempo com gravidade tão intensa que nada escapa, nem mesmo a luz!
 			</Text>

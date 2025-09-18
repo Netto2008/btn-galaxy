@@ -1,65 +1,22 @@
-import { StyleSheet, Text, Pressable, View, Image } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './components/home.jsx';
+import BuracoNegro from './components/buraconegro.jsx';
+import Planetas from './components/planetas.jsx';
+import Galaxias from './components/galaxia.jsx';
 
-export default function App({navigation}) {
+const Stack = createStackNavigator();
+
+export default function App() {
   return (
-    <View style={style.container}>
-      <View style={{ alignItems: 'center', marginBottom: 20 }}>
-        <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 10, color: '#fff' }}>
-          Bem-vindo ao App de Planetas!
-        </Text>
-        <Image
-          source={require('./assets/galaxy.jpg')}
-          style={{ width: 10000, height: 200, marginTop: 10 }}
-          resizeMode="contain"
-        />
-        <Text style={{ fontSize: 20, color: '#d6c423ff', marginTop: 10 }}>
-          Conheça um pouco do universo!
-        </Text>
-        <Text style={{ fontSize: 15, color: '#fff', marginTop: 10 }}>
-          Toque nos botões abaixo para explorar diferentes categorias:
-        </Text>
-      </View>
-
-      <Pressable
-        onPress={() => {navigation.replace('Planetas')}}
-        style={style.estilo_btn} 
-      >
-        <Text style={{ color: '#222', fontWeight: 'bold' }}>Planetas</Text>
-      </Pressable>
-      <Pressable
-        onPress={() => {navigation.navigate('Galaxias')}}
-        style={style.estilo_btn }
-      >
-        <Text style={{ color: '#222', fontWeight: 'bold' }}>Galaxias</Text>
-      </Pressable>
-      <Pressable
-        onPress={() => {navigation.navigate('BuracoNegro')}}
-        style={style.estilo_btn}
-      >
-        <Text style={{ color: '#222', fontWeight: 'bold' }}>Buraco Negro</Text>
-      </Pressable>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="home" component = { HomeScreen } />
+        <Stack.Screen name="BuracoNegro" component = { BuracoNegro } />
+        <Stack.Screen name="Planetas" component = { Planetas } />
+        <Stack.Screen name="Galaxias" component = { Galaxias } />
+        {/* Adicione outras telas aqui se desejar */}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-
-const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-    container: {
-      flex: 1,
-      backgroundColor: '#222', // cinza escuro
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    estilo_btn: {
-      padding: 10, 
-      backgroundColor: '#d6c423ff', 
-      borderRadius: 15, 
-      margin:10
-    }
-});
