@@ -1,5 +1,6 @@
 import { StyleSheet, Text, Pressable, View } from 'react-native';
 import { Image } from 'expo-image';
+import { Ionicons } from '@expo/vector-icons';
 
 
 export default function HomeScreen({navigation}) {
@@ -15,7 +16,7 @@ export default function HomeScreen({navigation}) {
           resizeMode="contain"
         /> */}
 
-  <Image source={require('../assets/galaxy.jpg')} style={{ width: 800, height: 200, marginTop: 10 }}/>
+  <Image source={require('../assets/galaxy.jpg')} style={{ width: 700, height: 200, marginTop: 10 }}/>
         <Text style={{ fontSize: 20, color: '#d6c423ff', marginTop: 10 }}>
           Conheça um pouco do universo!
         </Text>
@@ -25,21 +26,24 @@ export default function HomeScreen({navigation}) {
       </View>
 
       <Pressable
-        onPress={() => {navigation.replace('Planetas')}}
-        style={style.estilo_btn} 
+        onPress={() => {navigation.navigate('Planetas')}}
+        style={style.estilo_btn}
       >
+        <Ionicons name="planet" size={20} color="#fff" style={{ marginRight: 8 }} />
         <Text style={{ color: '#222', fontWeight: 'bold' }}>Planetas</Text>
       </Pressable>
       <Pressable
         onPress={() => {navigation.navigate('Galaxias')}}
-        style={style.estilo_btn }
+        style={style.estilo_btn}
       >
+        <Ionicons name="star" size={20} color="#fff" style={{ marginRight: 8 }} />
         <Text style={{ color: '#222', fontWeight: 'bold' }}>Galaxias</Text>
       </Pressable>
       <Pressable
         onPress={() => {navigation.navigate('BuracoNegro')}}
         style={style.estilo_btn}
       >
+        <Ionicons name="ellipse" size={20} color="#fff" style={{ marginRight: 8 }} />
         <Text style={{ color: '#222', fontWeight: 'bold' }}>Buraco Negro</Text>
       </Pressable>
     </View>
@@ -62,6 +66,8 @@ const style = StyleSheet.create({
       justifyContent: 'center',
     },
     estilo_btn: {
+      flexDirection: 'row',
+      alignItems: 'center',
       padding: 10, 
       backgroundColor: '#d6c423ff', 
       borderRadius: 15, 

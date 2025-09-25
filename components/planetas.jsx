@@ -5,7 +5,7 @@ export default function Planetas() {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.titulo}>Planetas</Text>
-			<Image source={require('../assets/icon.png')} style={styles.imagem} />
+			<Image source={require('../assets/planetas_alinhados.jpg')} style={styles.imagem} />
 			<Text style={styles.texto}>
 				Planetas são corpos celestes que orbitam estrelas e não emitem luz própria, como a Terra, Marte e Júpiter.
 			</Text>
